@@ -13,7 +13,7 @@ class AssetsController extends Controller
         $assets = Asset::paginate(10);
         if (count($assets) < 1) {
            return  response([
-               'message' => 'No records found in the database'
+               'message' => 'No records found in the database!'
            ]);
         } else {
             return AssetsResource::collection($assets);
