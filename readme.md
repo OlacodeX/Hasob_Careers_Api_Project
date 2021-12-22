@@ -1,3 +1,16 @@
+##### Hasob_Careers_Api_Project
+##### Requested Models
+###### CRUD API for User Model
+###### CRUD API for Asset Model
+###### CRUD API for Vendor Model
+###### CRUD API for Asset Assignment
+
+
+
+
+
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
