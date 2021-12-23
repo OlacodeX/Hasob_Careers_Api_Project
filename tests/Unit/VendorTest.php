@@ -15,9 +15,10 @@ class VendorTest extends TestCase
 
         $data = [
             
-           'firstName' => 'Olawale',
+           'name' => 'Olawale',
            'category' => 'Fashion' 
         ];
+        $this->withoutExceptionHandling();
           $this->json('POST', 'api/vendors/create', $data, ['Accept' => 'application/json'])
             ->assertStatus(201)
             ->assertJsonStructure([
@@ -34,7 +35,7 @@ class VendorTest extends TestCase
         $vendor = factory(Vendor::class)->create();
 
         $data = [
-           'firstName' => 'Olawale',
+           'name' => 'Olawale',
            'category' => 'Fashion' 
         ];
             $this->put(route('updateVendor', $vendor->id), $data, ['Accept' => 'application/json'])

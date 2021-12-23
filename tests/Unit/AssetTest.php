@@ -14,7 +14,7 @@ class AssetTest extends TestCase
      *
      * @return void
      */
-    public function test_can_list_productss() {
+    public function test_can_list_products() {
         $assets = factory(Asset::class, 2)->create();
 
         $this->get(route('allProducts'))

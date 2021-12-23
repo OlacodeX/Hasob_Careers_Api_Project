@@ -44,9 +44,9 @@ Route::put('/vendors/{id}','VendorController@update')->name('updateVendor');
 Route::delete('/vendors/{id}','VendorController@destroy')->name('removeVendor');
 
 //Asset Assignment routes
-Route::get('/assignments', 'AssignmentController@index');
-Route::get('/assignments/{id}', 'AssignmentController@show');
-Route::post('/assignments/create','AssignmentController@create');
-Route::put('/assignments/{id}/update','AssignmentController@update');
-Route::delete('/assignments/{id}/delete','AssignmentController@destroy');
+Route::get('/assignments', 'AssignmentController@index')->name('allAssignments');
+Route::get('/assignments/{id}', 'AssignmentController@show')->name('particularAssignment');
+Route::post('/assignments/create','AssignmentController@create')->name('addAssignment');
+Route::put('/assignments/{id}/update','AssignmentController@update')->name('updateAssignment');
+Route::delete('/assignments/{id}/delete','AssignmentController@destroy')->name('removeAssignment');
 

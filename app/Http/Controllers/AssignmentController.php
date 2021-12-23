@@ -75,7 +75,7 @@ class AssignmentController extends Controller
         $assigment->assignment_date = $request->input('assignment_date'); 
         $assigment->asset_id = $request->input('asset_id');
         if ($assigment->save()) {
-           return new AssignmentResource($assigment);
+           return (new AssignmentResource($assigment))->response()->setStatusCode(201);
         }
     }
  
@@ -84,7 +84,7 @@ class AssignmentController extends Controller
         //
          $assigment = Assignment::findOrFail($id);
         if ($assigment->delete()) {
-           return new AssignmentResource($assigment);
+           return (new AssignmentResource($assigment))->response()->setStatusCode(204);
         }
     }
 }
