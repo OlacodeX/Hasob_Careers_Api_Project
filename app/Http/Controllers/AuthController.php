@@ -122,7 +122,7 @@ class AuthController extends Controller
         $user->picture_url = $request->picture_url;
         $user->password = Hash::make($request->password);
         if ($user->save()) {
-           return new AuthResource($user);
+           return (new AuthResource($user))->response()->setStatusCode(201);
         }
     } 
 
@@ -131,7 +131,7 @@ class AuthController extends Controller
         //
         $user = User::findOrFail($id); 
         if ($user->delete()) {
-           return new AuthResource($user);
+           return (new AuthResource($user))->response()->setStatusCode(204);
         }
     }
     

@@ -2,24 +2,24 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\Asset;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Asset::class, function (Faker $faker) {
     return [
         //
-        'type' => $this->faker->text(10),
-        'serialNumber' => $this->faker->number(10),
-        'description' => $this->faker->text(50),
-        'fixed_movable' => $this->faker->text(3),
-        'picture_path' => $this->faker->text(10),
-        'purchase_date' => $this->faker->text(10),
-        'start_use_date' => $this->faker->text(10),
-        'purchase_price' => $this->faker->number(10),
-        'warranty_expiry_date' => $this->faker->text(10),
-        'degradation_in_yeard' => $this->faker->number(10),
-        'current_value_in_naira' => $this->faker->number(10),
-        'location' => $this->faker->text(10),
+        'type' => 'New',
+        'serialNumber' => $faker->phoneNumber,
+        'description' => $faker->sentence,
+        'fixed_movable' => 'Yes',
+        'picture_path' => 'https://source.unsplash.com/random',
+        'purchase_date' => $faker->dateTimeBetween('1990-01-01', '2012-12-31')->format('d/m/Y'),
+        'start_use_date' => $faker->dateTimeBetween('1990-01-01', '2012-12-31')->format('d/m/Y'),
+        'purchase_price' => '1500',
+        'warranty_expiry_date' => $faker->dateTimeBetween('1990-01-01', '2012-12-31')->format('d/m/Y'),
+        'degradation_in_yeard' => $faker->dateTimeBetween('1990-01-01', '2012-12-31')->format('Y'),
+        'current_value_in_naira' => '2000',
+        'location' => 'Nigeria',
         
     ];
 });

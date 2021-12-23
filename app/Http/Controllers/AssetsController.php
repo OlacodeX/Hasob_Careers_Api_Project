@@ -79,7 +79,7 @@ class AssetsController extends Controller
         $asset->location = $request->location;
         $asset->purchase_price = $request->purchase_price;  
         if ($asset->save()) {
-           return new AssetsResource($asset);
+           return (new AssetsResource($asset))->response()->setStatusCode(201);
         }
 
     }
@@ -88,7 +88,7 @@ class AssetsController extends Controller
         //
          $asset = Asset::findOrFail($id);
         if ($asset->delete()) {
-           return new AssetsResource($asset);
+           return (new AssetsResource($asset))->response()->setStatusCode(204);
         }
     }
 }

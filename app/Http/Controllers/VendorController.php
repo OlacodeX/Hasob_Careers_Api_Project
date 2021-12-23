@@ -62,7 +62,7 @@ class VendorController extends Controller
         $vendor->name = $request->input('name');
         $vendor->category = $request->input('category'); 
         if ($vendor->save()) {
-           return new VendorResource($vendor);
+           return (new VendorResource($vendor))->response()->setStatusCode(201);
         }
     }
  
@@ -71,7 +71,7 @@ class VendorController extends Controller
         //
          $vendor = Vendor::findOrFail($id);
         if ($vendor->delete()) {
-           return new VendorResource($vendor);
+           return (new VendorResource($vendor))->response()->setStatusCode(204);
         }
     }
 }

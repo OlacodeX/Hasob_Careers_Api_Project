@@ -15,12 +15,12 @@ use App\Http\Resources\VendorResource;
 */
  
 //User routes
-Route::get('/registeredUsers', 'AuthController@get_all_users'); 
-Route::post('/register', 'AuthController@register');
+Route::get('/registeredUsers', 'AuthController@get_all_users')->name('allUsers'); 
+Route::post('/register', 'AuthController@register')->name('register');
 Route::post('/login', 'AuthController@login');
-Route::get('/User/{id}', 'AuthController@getParticularUser');
-Route::put('/User/{id}', 'AuthController@update');
-Route::delete('/User/{id}', 'AuthController@destroy');
+Route::get('/User/{id}', 'AuthController@getParticularUser')->name('particularUser');
+Route::put('/User/{id}', 'AuthController@update')->name('user');
+Route::delete('/User/{id}', 'AuthController@destroy')->name('removeUser');
 
 //to return authenticated user
 Route::middleware('auth:sanctum')->group(function (){
@@ -30,18 +30,18 @@ Route::post('/logout', 'AuthController@logout');
 
 
 //Asset routes
-Route::get('/products','AssetsController@allProducts');
-Route::get('/products/{id}', 'AssetsController@getParticularProduct');
-Route::post('/products/create','AssetsController@create');
-Route::put('/products/{id}/update','AssetsController@update');
-Route::delete('/products/{id}/delete','AssetsController@destroy');
+Route::get('/products','AssetsController@allProducts')->name('allProducts');
+Route::get('/products/{id}', 'AssetsController@getParticularProduct')->name('particularProduct');
+Route::post('/products/create','AssetsController@create')->name('addProduct');
+Route::put('/products/{id}','AssetsController@update')->name('updateProduct');
+Route::delete('/products/{id}','AssetsController@destroy')->name('removeProduct');
 
 //Vendor routes
-Route::get('/vendors', 'VendorController@index');
-Route::get('/vendors/{id}', 'VendorController@show');
-Route::post('/vendors/create','VendorController@create');
-Route::put('/vendors/{id}/update','VendorController@update');
-Route::delete('/vendors/{id}/delete','VendorController@destroy');
+Route::get('/vendors', 'VendorController@index')->name('allVendors');
+Route::get('/vendors/{id}', 'VendorController@show')->name('particularVendor');
+Route::post('/vendors/create','VendorController@create')->name('addVendor');
+Route::put('/vendors/{id}','VendorController@update')->name('updateVendor');
+Route::delete('/vendors/{id}','VendorController@destroy')->name('removeVendor');
 
 //Asset Assignment routes
 Route::get('/assignments', 'AssignmentController@index');
